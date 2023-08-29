@@ -4,6 +4,7 @@
 
 ## 📍 버전
 
+- JAVA 17
 - JDK 20
 - org.springframework.boot' version '3.1.3'
 
