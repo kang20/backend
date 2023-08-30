@@ -8,7 +8,6 @@
 - JDK 20
 - org.springframework.boot' version '3.1.3'
 
-
 ## 📍 Database ERD
 
 ![image](https://github.com/1st-webserviceproject/backend/assets/128140195/87d56017-eb6c-4396-b1a3-122499ce1161)
