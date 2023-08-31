@@ -1,6 +1,7 @@
 package com.example.aiwebservice.controller;
 
 
+import com.example.aiwebservice.data.domain.Member;
 import com.example.aiwebservice.data.dto.CreateMemberDTO;
 import com.example.aiwebservice.service.memberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class memberController {
 
     @PostMapping("/member") // 회원가입 요청
     public String create_member(CreateMemberDTO form) {
+
         return null;
     }
 }
