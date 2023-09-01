@@ -32,6 +32,10 @@ public class MemorymemberRepository implements memberRepository{
                 .findAny();
     }
 
+    public void Clear() {
+        db.clear();
+    }
+
 
 
 
