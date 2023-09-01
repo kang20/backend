@@ -21,7 +21,6 @@ public class memberService {
         Duplicate(member);
         memberrepository.save(member);
         return member;
-
     }
     private void Duplicate(Member member) { // ID와 password 일치 코드
         memberrepository.findbyid(member.getMemberId()).ifPresent(m -> {
