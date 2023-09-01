@@ -1,31 +1,29 @@
 package com.example.aiwebservice.data.dto;
 
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class CreateMemberDTO {
-    private String name;
-    private String id;
-    private String password;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @NotBlank(message = "이름을 입력해주세요")
+    @Size(min=2,max=8,message = "이름의 길이를 확인해주세요")
+    private String name; // 이름
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    @NotBlank(message = "ID를 입력해주세요")
+    @Size(min=2,max=8,message = "ID의 길이를 확인해주세요")
+    private String id; // 아이디
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    @NotBlank(message = "password를 입력해주세요")
+    @Size(min=2,max=8,message = "비밀번호의 길이를 확인해주세요")
+    private String password; // 패스워드
+
+
 }
