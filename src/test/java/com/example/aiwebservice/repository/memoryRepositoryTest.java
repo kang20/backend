@@ -24,17 +24,5 @@ public class memoryRepositoryTest {
     }
 
 
-    @Test
-    public void 조회_테스트() {
-        Member member = new Member();
-        member.setName("name");
-        member.setMemberPassword("password");
-        member.setMemberId("Id");
-        repository.save(member);
-        Assertions.assertThat(repository.findbyid("Id").get())
-                .isEqualTo(repository.findbypassword("password").get());
-
-    }
-
 
 }

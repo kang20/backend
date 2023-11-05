@@ -4,9 +4,12 @@ import com.example.aiwebservice.data.domain.Member;
 import com.example.aiwebservice.data.dto.CreateMemberDTO;
 import com.example.aiwebservice.repository.memberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class memberService {
     private memberRepository memberrepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public memberService(memberRepository memberrpository) {
@@ -17,7 +20,8 @@ public class memberService {
         Member member = new Member();
         member.setName(form.getName());
         member.setMemberId(form.getId());
-        member.setMemberPassword(form.getPassword());
+        member.setMemberPassword(passwordEncoder.encode(form.getPassword()));
+        member.setRole("ROLE_ADMIN");
         Duplicate(member);
         memberrepository.save(member);
         return member;
@@ -26,12 +30,7 @@ public class memberService {
         memberrepository.findbyid(member.getMemberId()).ifPresent(m -> {
             throw new IllegalStateException("이미 있는 ID");
         });
-        memberrepository.findbypassword(member.getMemberPassword()).ifPresent( m-> {
-            throw new IllegalStateException("이미 있는 password");
-        });
+
 
     }
-
-
-
 }

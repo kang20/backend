@@ -26,11 +26,10 @@ public class MemorymemberRepository implements memberRepository{
     }
 
     @Override
-    public Optional<Member> findbypassword(String memberpassword) {
-        return db.values().stream()
-                .filter(member -> member.getMemberPassword().equals(memberpassword))
-                .findAny();
+    public Optional<Member> findByName(String name) {
+        return Optional.empty();
     }
+
 
     public void Clear() {
         db.clear();

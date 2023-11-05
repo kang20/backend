@@ -1,16 +1,15 @@
-package com.example.aiwebservice;
+package com.example.aiwebservice.config;
 
 
 import com.example.aiwebservice.repository.JDBCTemplatememberRepository;
-import com.example.aiwebservice.repository.MemorymemberRepository;
 import com.example.aiwebservice.repository.memberRepository;
+import com.example.aiwebservice.service.MemberDetailsService;
 import com.example.aiwebservice.service.memberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 
 @Configuration
 public class Config {
@@ -28,12 +27,18 @@ public class Config {
         return new memberService(memberRepository());
     }
 
+
+
     @Bean
     public memberRepository memberRepository() {
 //        return new MemorymemberRepository();
         return new JDBCTemplatememberRepository(dataSource);
     }
 
+    @Bean
+    public MemberDetailsService userDetailsService() {
+        return new MemberDetailsService(memberRepository());
+    }
 
 
 

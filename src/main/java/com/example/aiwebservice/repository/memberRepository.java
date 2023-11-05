@@ -12,9 +12,8 @@ public interface memberRepository { //member 관리 repository
 
     Optional<Member> findbyid(String memberid);
 
-    Optional<Member> findbypassword(String memberpassword);
 
-    
+    Optional<Member> findByName(String name);
 
 
 //    Member findbyname(String name);

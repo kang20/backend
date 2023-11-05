@@ -27,18 +27,13 @@ public class memberRepositoryIT_Test {
         member.setName("name");
         member.setMemberId("ID");
         member.setMemberPassword("password");
+        member.setRole("USER");
         memberRepository.save(member);
         assertThat(member.getName())
                 .isEqualTo(memberRepository.findbyid("ID").get().getName());
-
-
     }
 
-    @Test
-    public void 조회_test() {
-        assertThat(memberRepository.findbyid("아이디").get().getName())
-                .isEqualTo(memberRepository.findbypassword("비밀번호!").get().getName());
-    }
+
 
 
 

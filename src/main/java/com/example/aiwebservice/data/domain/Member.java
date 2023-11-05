@@ -4,6 +4,7 @@ public class Member {
     private String memberId; // ID
     private String memberPassword; // password
     private String name; // member name
+    private String role; // 권한
 
 
     public String getMemberId() {
@@ -28,5 +29,13 @@ public class Member {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
