@@ -3,7 +3,6 @@ package com.example.aiwebservice.config;
 
 import com.example.aiwebservice.repository.JDBCTemplatememberRepository;
 import com.example.aiwebservice.repository.memberRepository;
-import com.example.aiwebservice.service.MemberDetailsService;
 import com.example.aiwebservice.service.memberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -35,10 +34,6 @@ public class Config {
         return new JDBCTemplatememberRepository(dataSource);
     }
 
-    @Bean
-    public MemberDetailsService userDetailsService() {
-        return new MemberDetailsService(memberRepository());
-    }
 
 
 
