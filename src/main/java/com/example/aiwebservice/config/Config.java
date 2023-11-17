@@ -1,8 +1,10 @@
 package com.example.aiwebservice.config;
 
 
+import com.example.aiwebservice.JwtTokenProvider.JwtTokenProvider;
 import com.example.aiwebservice.repository.JDBCTemplatememberRepository;
 import com.example.aiwebservice.repository.memberRepository;
+import com.example.aiwebservice.service.MyDetailsService;
 import com.example.aiwebservice.service.memberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +18,6 @@ public class Config {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
     public Config(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -26,16 +27,13 @@ public class Config {
         return new memberService(memberRepository());
     }
 
-
-
     @Bean
     public memberRepository memberRepository() {
 //        return new MemorymemberRepository();
         return new JDBCTemplatememberRepository(dataSource);
     }
-
-
-
-
-
+    @Bean
+    public MyDetailsService myDetailsService(){
+        return new MyDetailsService(memberRepository());
+    }
 }
